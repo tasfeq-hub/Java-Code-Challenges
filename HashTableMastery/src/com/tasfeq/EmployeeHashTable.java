@@ -47,6 +47,18 @@ public class EmployeeHashTable {
 
     }
 
+    public Employee remove(String key){
+
+        int hashedKey= findKey(key);
+        if(hashedKey == -1){
+            return null;
+        }else{
+            Employee employee = hashtable[hashedKey].employee;
+            hashtable[hashedKey] = null;
+            return  employee;
+        }
+    }
+
     private int hashKey(String key){
 
         return key.length() % hashtable.length;
